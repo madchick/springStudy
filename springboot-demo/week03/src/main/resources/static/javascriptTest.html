@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript test</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+        let a = 3; // 변수를 처음 선언할 때 let을 써줍니다. 자료형은 써주지 않아도 되어요.
+        let b = 2;
+        console.log(a + b); // System.out.println()과 같은 녀석입니다.
+        b = 7;
+        console.log(a + b);
+
+
+
+        let name = 'bknam';
+        let course = "웹개발의 봄 Spring" // 자바와 다르게 홑/쌍따옴표 상관없습니다.
+        let num = 10;
+        console.log(num + name); // 문자 + 숫자 하면 둘 모두를 문자로 묶습니다.
+
+
+
+        let age1 = 18;
+        let age2 = 20;
+        let isAdult = age1 > 19;
+        console.log(isAdult); // false
+        isAdult = age2 > 19;
+        console.log(isAdult); // true
+
+
+
+        let fruits = ['사과', '딸기', '수박']; // List 보다 편하게 사용할 수 있습니다.
+        console.log(fruits[0]);
+        console.log(fruits[1]);
+        console.log(fruits[2]);
+
+
+
+        course = {
+            'title': '웹개발의 봄, Spring',
+            'tutor': '남병관'
+        };
+
+        console.log(course);
+
+
+
+        fruits = ['사과', '딸기', '수박']; // List 보다 편하게 사용할 수 있습니다.
+        for (let i=0; i<fruits.length; i++) {
+            let fruit = fruits[i];
+            console.log(fruit);
+        }
+
+
+
+        fruits = ['사과', '딸기', '수박']; // List 보다 편하게 사용할 수 있습니다.
+        for (let i=0; i<fruits.length; i++) {
+            let fruit = fruits[i];
+            console.log(fruit == '수박');
+        }
+
+
+
+        function sample() {
+            alert('얼럿!');
+        }
+
+
+
+        name = '내 이름';
+        let text = `${name}님의 스프링 5주 완주를 축하합니다!`;
+        console.log(text);
+
+
+
+        fruits = ['사과', '딸기', '수박', '감', '배', '딸기', '감'];
+
+        function countFruit(name) {
+            let result = 0;
+            for (let i=0; i<fruits.length; i++) {
+                let fruit = fruits[i];
+                if (fruit == name) {
+                    result += 1;
+                }
+            }
+            return result;
+        }
+
+        let count = countFruit('감');
+        console.log(count); // 배열에 들어있는 감의 개수 인쇄
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
