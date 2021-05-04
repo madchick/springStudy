@@ -151,7 +151,7 @@ function addProductItem(product) {
                 </div>
                 <div class="card-body">
                     <div class="title">
-                        ${product.title}
+                        ${product.title} (${product.id})
                     </div>
                     <div class="lprice">
                         <span>${numberWithCommas(product.lprice)}</span>원
