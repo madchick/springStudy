@@ -13,7 +13,7 @@ public class User {
 
     @Min(1)
     @NotNull
-    private Integer age;
+    private int age;
 
     public String getName() {
         return name;
