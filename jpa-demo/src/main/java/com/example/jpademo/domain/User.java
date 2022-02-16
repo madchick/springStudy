@@ -1,6 +1,5 @@
 package com.example.jpademo.domain;
 
-import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -10,6 +9,7 @@ import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Data
 @Builder
 @Entity
@@ -18,10 +18,10 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @NotNull
+    @NonNull
     private String name;
 
-    @NotNull
+    @NonNull
     private String email;
 
     private LocalDateTime createdAt;

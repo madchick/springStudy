@@ -18,9 +18,12 @@ class HelloWorldControllerTest {
 
     @Test
     void helloWorld() throws Exception {
+
         mockMvc.perform(MockMvcRequestBuilders.get("/hello-world"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello World"));
+
     }
+
 }
