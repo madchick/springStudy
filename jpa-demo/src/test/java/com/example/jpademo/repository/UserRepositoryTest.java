@@ -78,6 +78,7 @@ class UserRepositoryTest {
         User userUpdate = userRepository.findById(7L).orElseThrow(RuntimeException::new);
         userUpdate.setEmail("martin-updated@fastcampus.com");
         userRepository.save(userUpdate);
+        
     }
 
 }
