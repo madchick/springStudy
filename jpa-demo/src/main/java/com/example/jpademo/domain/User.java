@@ -2,9 +2,7 @@ package com.example.jpademo.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -13,6 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @Entity
+@Table(name="user", indexes = { @Index(columnList="name")}, uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 public class User {
     @Id
     @GeneratedValue
@@ -24,7 +23,16 @@ public class User {
     @NonNull
     private String email;
 
+    @Column(name="createdt", nullable = false)
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @Transient
+    private String testData;
+
+    @PrePersist
+    public void prePersist() {
+        System.out.println(">>> prePersist");
+    }
 }
