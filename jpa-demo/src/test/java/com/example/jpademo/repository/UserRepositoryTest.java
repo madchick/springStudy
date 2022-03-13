@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.contains;
-import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 @SpringBootTest
 class UserRepositoryTest {
