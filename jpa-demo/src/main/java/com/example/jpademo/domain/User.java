@@ -23,7 +23,7 @@ public class User {
     @NonNull
     private String email;
 
-    @Column(name="createdt", nullable = false)
+    // @Column(name="created", nullable = false)
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
