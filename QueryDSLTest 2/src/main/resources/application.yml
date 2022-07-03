@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:mariadb://localhost:3306/testdb
-    username: testdb
-    password: testdb
-  jpa:
-    open-in-view: false
-    generate-ddl: true
-    show-sql: true

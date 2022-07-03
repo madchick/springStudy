@@ -7,9 +7,11 @@ import com.example.QueryDSLTest.Post.model.QPostBoardEntity;
 import com.example.QueryDSLTest.Post.model.QPostEntity;
 import com.example.QueryDSLTest.User.model.QUserEntity;
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.util.StringUtils;
 import com.querydsl.jpa.JPQLQuery;
+import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -68,7 +70,7 @@ public class PostBoardQDSLRepositoryImpl implements PostBoardQDSLRepository {
     }
 
     public PageImpl<PostBoardEntity> findPostBoardAllByBoardIdQDSLWithPaging(Long boardId, Pageable pageable) {
-        JPQLQuery<PostBoardEntity> query = jpaQueryFactory
+        List<PostBoardEntity> postBoardEntities = jpaQueryFactory
                 .selectFrom(postBoard)
                 .innerJoin(postBoard.boardEntity, board)
                 .fetchJoin()
@@ -79,8 +81,24 @@ public class PostBoardQDSLRepositoryImpl implements PostBoardQDSLRepository {
                 .innerJoin(post.commentEntities, comment)
                 .fetchJoin()
                 .innerJoin(comment.userEntity, user)
-                .fetchJoin();
+                .fetchJoin()
+                .where(
+                        postBoard.boardId.eq(boardId)
+                )
+                .orderBy(postBoard.createdDate.desc().nullsLast())
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetch();
 
-        return pagingUtil.getPageImpl(pageable, query, PostBoardEntity.class);
+        Long totalCount = jpaQueryFactory
+                .select(postBoard.count())
+                .from(postBoard)
+                .where(
+                        postBoard.boardId.eq(boardId)
+                )
+                .fetchOne();
+
+        return new PageImpl<>(postBoardEntities, pageable, totalCount);
     }
+
 }

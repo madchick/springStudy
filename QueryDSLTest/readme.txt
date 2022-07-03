@@ -10,6 +10,9 @@ https://tecoble.techcourse.co.kr/post/2021-08-08-basic-querydsl/
 JPA pagable 같이 사용하기
 https://jddng.tistory.com/345
 
+소팅
+https://medium.com/quick-code/spring-boot-how-to-design-efficient-search-rest-api-c3a678b693a0
+
 https://github.com/jeonguk/spring-jpa-querydsl-example
 
 
