@@ -69,6 +69,7 @@ public class PostBoardQDSLRepositoryImpl implements PostBoardQDSLRepository {
                 .fetch();
     }
 
+    @Override
     public PageImpl<PostBoardEntity> findPostBoardAllByBoardIdQDSLWithPaging(Long boardId, Pageable pageable) {
         List<PostBoardEntity> postBoardEntities = jpaQueryFactory
                 .selectFrom(postBoard)

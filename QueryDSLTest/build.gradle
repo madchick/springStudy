@@ -1,3 +1,4 @@
+// querydsl 추가
 buildscript {
 	ext {
 		queryDslVersion = "5.0.0"
