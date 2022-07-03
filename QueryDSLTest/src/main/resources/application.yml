@@ -4,6 +4,19 @@ spring:
     username: testdb
     password: testdb
   jpa:
-    open-in-view: false
-    generate-ddl: true
-    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        generate_statistics: true
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
+
+
+
